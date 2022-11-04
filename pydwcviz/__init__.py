@@ -17,5 +17,6 @@ __title__ = "pydwcviz"
 __license__ = "MIT"
 
 __all__ = [
-    
+    "taxon",
+    "stats"
 ]
