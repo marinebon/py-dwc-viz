@@ -17,7 +17,7 @@ def plot_dist(df, **kwargs):
 
     Usage::
 
-        from pydwcvix import taxon
+        from pydwcviz import taxon
         from pyobis.occurrences import OccQuery
         occ = OccQuery()
 
