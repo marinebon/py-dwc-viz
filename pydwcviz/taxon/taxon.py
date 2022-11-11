@@ -46,7 +46,7 @@ def plot_dist(df, **kwargs):
     fig.update_traces(textinfo="label+percent parent")
     return fig
 
-def latdist(data, level="Species", bbox_to_anchor = [1.5, 0.8]):
+def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=False):
     """
     Generates a line plot of taxonomic distribution against latitude at a taxonomic level
     
@@ -55,7 +55,7 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 0.8]):
     :param level: [String] Taxonomic level to plot distribution at. One of 
         ["kingdom", "phylum", "class", "order", "family", "genus","species"].
     :param bbox_to_anchor: [List <Float>] Position to anchor bounding box for easy viewing of legend.
-
+    :param interactive: [Boolean] If True, the matplotlib plot. If False then plotly interactive plot
     :return: A Matplotlib axes object.
 
     Usage::
@@ -64,23 +64,33 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 0.8]):
         from pyobis import occurrences
 
         # plot the figure with the data
-        taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species")
+        taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species", interactive=False)
+
+        # interactive plot using plotly
+        fig = taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species", interactive=True)
+        fig.show()
     """
     # groupby a certain level
     l = data.groupby([level, "decimalLatitude"]).scientificName.count()
     df = pd.DataFrame(l)
-    df.loc[:,["taxa", "lat"]] = l.index.tolist()
-    df.index = range(len(df))
+    df.loc[:,[level, "lat"]] = l.index.tolist()
+    df.rename(columns = {'scientificName':'count'}, inplace=True)
 
     df.sort_values("lat", inplace=True)
     
-    fig, ax = plt.subplots(1,1,sharex=True,sharey=True)
-    for i in df["taxa"].unique():
-        df[df["taxa"]==i].plot(x = "scientificName", y="lat", label=i, ax = ax)
-    
-    plt.xlabel("count")
-    plt.ylabel("latitude")
-    plt.title("Latitude v/s Occurrence Counts")
-    plt.legend(bbox_to_anchor=bbox_to_anchor)
+    if not interactive:
+        fig, ax = plt.subplots(1,1,sharex=True,sharey=True)
+        for i in df["taxa"].unique():
+            df[df["taxa"]==i].plot(x = "count", y="lat", label=i, ax = ax)
+        
+        plt.ylabel("latitude")
+        plt.title("Latitude v/s Occurrence Counts")
+        plt.legend(bbox_to_anchor=bbox_to_anchor)
 
-    return plt.show()
+        return plt.show()
+    else:
+        fig = px.line(df, x = "count",y ="lat", color=level)
+        fig.update_layout(title="Latitude v/s Occurrence Counts")
+        return fig
+   
+    
