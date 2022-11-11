@@ -46,7 +46,7 @@ def plot_dist(df, **kwargs):
     fig.update_traces(textinfo="label+percent parent")
     return fig
 
-def latdist(data, level="Species"):
+def latdist(data, level="Species", bbox_to_anchor = [1.5, 0.8]):
     """
     Generates a line plot of taxonomic distribution against latitude at a taxonomic level
     
@@ -54,6 +54,7 @@ def latdist(data, level="Species"):
         columns ["kingdom", "phylum", "class", "order", "family", "genus","species"].
     :param level: [String] Taxonomic level to plot distribution at. One of 
         ["kingdom", "phylum", "class", "order", "family", "genus","species"].
+    :param bbox_to_anchor: [List <Float>] Position to anchor bounding box for easy viewing of legend.
 
     :return: A Matplotlib axes object.
 
@@ -62,11 +63,8 @@ def latdist(data, level="Species"):
         from pydwcviz import taxon
         from pyobis import occurrences
 
-        # get the data
-        fig = taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species")
-        
-        # show the figure
-        fig.show()
+        # plot the figure with the data
+        taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species")
     """
     # groupby a certain level
     l = data.groupby([level, "decimalLatitude"]).scientificName.count()
@@ -75,7 +73,7 @@ def latdist(data, level="Species"):
     df.index = range(len(df))
 
     df.sort_values("lat", inplace=True)
-    print("dit")
+    
     fig, ax = plt.subplots(1,1,sharex=True,sharey=True)
     for i in df["taxa"].unique():
         df[df["taxa"]==i].plot(x = "scientificName", y="lat", label=i, ax = ax)
@@ -83,6 +81,6 @@ def latdist(data, level="Species"):
     plt.xlabel("count")
     plt.ylabel("latitude")
     plt.title("Latitude v/s Occurrence Counts")
-    plt.legend(bbox_to_anchor=[1.3, 0.8])
+    plt.legend(bbox_to_anchor=bbox_to_anchor)
 
     return plt.show()
