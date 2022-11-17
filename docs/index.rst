@@ -6,10 +6,33 @@
 Welcome to PyDwcViz's documentation!
 ====================================
 
+PyDwcViz
+========
+A python package to help with Darwin-Core Data analysis and visualization.
+
+Installation
+############
+Install latest development version from GitHub
+----------------------------------------------
+
+.. code-block:: python
+   
+   pip install git+git://github.com/marinebon/py-dwc-viz.git
+
+Contents
+########
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   taxon
+
+Modules
+#######
+`Taxon <taxon.html>`__
+----------------------
+
+Visualize taxanomic distributions from OBIS data in various forms.
 
 
 Indices and tables

@@ -8,11 +8,11 @@ except:
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def plot_dist(df, **kwargs):
+def plot_dist(data, **kwargs):
     """
     Generates a plotly sunburst plot from a DataFrame of occurrence records.
 
-    :param df: [Pandas DataFrame] A Pandas DataFrame of occurrence records with 
+    :param data: [Pandas DataFrame] A Pandas DataFrame of occurrence records with 
         columns ["kingdom", "phylum", "class", "order", "family", "genus","species"].
 
     :return: A plotly sunburst plot figure object
@@ -20,18 +20,17 @@ def plot_dist(df, **kwargs):
     Usage::
 
         from pydwcviz import taxon
-        from pyobis.occurrences import OccQuery
-        occ = OccQuery()
+        from pyobis import occurrences
 
         # get the data
-        fig = taxon.plot_dist(occ.search(scientificname = "Mola mola"))
+        fig = taxon.plot_dist(occurrences.search(scientificname = "Mola mola").execute())
         
         # show the figure
         fig.show()
     """
 
     fig = px.sunburst(
-        df.fillna(
+        data.fillna(
             {'phylum':'None',
             'order':"None",
             'class':"None",
@@ -50,7 +49,7 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
     """
     Generates a line plot of taxonomic distribution against latitude at a taxonomic level
     
-    :param df: [Pandas DataFrame]  A Pandas DataFrame of occurrence records with 
+    :param data: [Pandas DataFrame]  A Pandas DataFrame of occurrence records with 
         columns ["kingdom", "phylum", "class", "order", "family", "genus","species"].
     :param level: [String] Taxonomic level to plot distribution at. One of 
         ["kingdom", "phylum", "class", "order", "family", "genus","species"].
@@ -64,7 +63,7 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
         from pyobis import occurrences
 
         # plot the figure with the data
-        taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species", interactive=False)
+        taxon.latdist(occurrences.search(scientificname = "Mola mola").execute(), level="species", interactive=False)
 
         # interactive plot using plotly
         fig = taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species", interactive=True)

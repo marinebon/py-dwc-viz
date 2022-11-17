@@ -13,7 +13,7 @@ except ImportError:
     __version__ = "unknown"
 
 __title__ = "pydwcviz"
-# __author__ = ""
+__author__ = "Ayush Anand, Tylar Murray"
 __license__ = "MIT"
 
 __all__ = [
