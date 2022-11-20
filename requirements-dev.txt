@@ -3,3 +3,5 @@ matplotlib
 plotly
 pyobis
 seaborn
+pytest
+flake8
