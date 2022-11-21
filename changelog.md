@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.3 (2022-11-20)
++ added documentation for all existing functions
+
 ## 0.0.2 (2022-11-11)
 + implemented latitudinal distribution at any taxa level using both `matplotlib` and `plotly`
 
