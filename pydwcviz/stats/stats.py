@@ -1,7 +1,7 @@
 import pandas as pd
 from ..utils import get, obis_base_url
 
-def records(
+def get_records(
     scientificname = None,
     taxonid=None,
     areaid=None,
@@ -68,7 +68,7 @@ def records(
     out = get(f'{obis_base_url}/statistics',args, **kwargs)
     return out
 
-def years(
+def get_years(
     scientificname = None,
     taxonid=None,
     areaid=None,
@@ -92,7 +92,7 @@ def years(
     Get number of presence records per year.
     """
 
-def env(
+def get_env(
     scientificname = None,
     taxonid=None,
     areaid=None,
@@ -158,7 +158,7 @@ def env(
     out = get(f'{obis_base_url}/statistics',args, **kwargs)
     return out
 
-def qc(
+def get_qc(
     scientificname = None,
     taxonid=None,
     areaid=None,
@@ -226,7 +226,7 @@ def qc(
     return out
     
 
-def composition(
+def get_composition(
     scientificname = None,
     taxonid=None,
     areaid=None,
@@ -292,7 +292,7 @@ def composition(
     out = get(f'{obis_base_url}/statistics',args, **kwargs)
     return out
 
-def outliers(
+def get_outliers(
     scientificname = None,
     taxonid=None,
     areaid=None,
