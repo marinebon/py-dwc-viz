@@ -131,7 +131,7 @@ def get_years(
         "flags":	flags,
         "exclude":	exclude,
     }
-    out = get(f'{obis_base_url}/statistics',args, **kwargs)
+    out = get(f'{obis_base_url}/statistics/years',args, **kwargs)
     return out
 
 def get_env(
@@ -197,7 +197,7 @@ def get_env(
         "flags":	flags,
         "exclude":	exclude,
     }
-    out = get(f'{obis_base_url}/statistics',args, **kwargs)
+    out = get(f'{obis_base_url}/statistics/env',args, **kwargs)
     return out
 
 def get_qc(
@@ -264,7 +264,7 @@ def get_qc(
         "flags":	flags,
         "exclude":	exclude,
     }
-    out = get(f'{obis_base_url}/statistics',args, **kwargs)
+    out = get(f'{obis_base_url}/statistics/qc',args, **kwargs)
     return out
     
 
@@ -331,7 +331,7 @@ def get_composition(
         "flags":	flags,
         "exclude":	exclude,
     }
-    out = get(f'{obis_base_url}/statistics',args, **kwargs)
+    out = get(f'{obis_base_url}/statistics/composition',args, **kwargs)
     return out
 
 def get_outliers(
@@ -397,5 +397,5 @@ def get_outliers(
         "flags":	flags,
         "exclude":	exclude,
     }
-    out = get(f'{obis_base_url}/statistics',args, **kwargs)
+    out = get(f'{obis_base_url}/statistics/outliers',args, **kwargs)
     return out
