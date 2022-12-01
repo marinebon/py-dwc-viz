@@ -66,7 +66,7 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
         taxon.latdist(occurrences.search(scientificname = "Mola mola").execute(), level="species", interactive=False)
 
         # interactive plot using plotly
-        fig = taxon.latdist(occurrences.search(scientificname = "Mola mola"), level="species", interactive=True)
+        fig = taxon.latdist(occurrences.search(scientificname = "Mola mola").execute(), level="species", interactive=True)
         fig.show()
     """
     # groupby a certain level
@@ -79,8 +79,8 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
     
     if not interactive:
         fig, ax = plt.subplots(1,1,sharex=True,sharey=True)
-        for i in df["taxa"].unique():
-            df[df["taxa"]==i].plot(x = "count", y="lat", label=i, ax = ax)
+        for i in df[level].unique():
+            df[df[level]==i].plot(x = "count", y="lat", label=i, ax = ax)
         
         plt.ylabel("latitude")
         plt.title("Latitude v/s Occurrence Counts")
@@ -91,5 +91,3 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
         fig = px.line(df, x = "count",y ="lat", color=level)
         fig.update_layout(title="Latitude v/s Occurrence Counts")
         return fig
-   
-    

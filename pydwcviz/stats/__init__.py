@@ -1,4 +1,4 @@
-from .stats import get_records, get_qc, get_env, get_years, get_composition, get_outliers
+from .stats import get_records, get_qc, get_env, get_years, get_composition
 
 __all__ = [
     "get_records",
@@ -6,5 +6,4 @@ __all__ = [
     "get_env", 
     "get_years", 
     "get_composition",
-    "get_outliers",
 ]
