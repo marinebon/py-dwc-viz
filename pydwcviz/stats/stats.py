@@ -342,6 +342,8 @@ def dist_years(data, interactive=False, **kwargs):
 
     :param data: [Dict] Ingest data grabbed from get_years() function.
 
+    :return: a matplotlib Axes object or plotly Figure object
+
     ::Usage
 
         from pydwcviz import stats
@@ -353,10 +355,48 @@ def dist_years(data, interactive=False, **kwargs):
     """
     df = pd.DataFrame(data)
     if not interactive:
-        plt.bar(x = df['year'], height = df['records'])
+        ax = plt.bar(x = df['year'], height = df['records'])
         plt.xlabel("year")
         plt.ylabel("records")
-        return plt.show()
+        return ax
     
     fig = px.bar(data, x = "year", y = "records")
+    return fig
+
+def dist_env(data, parameter, interactive=False, **kwargs):
+    """
+    Get a distribution of environmental parameters: SST, SSS and depth
+    
+    :param data: [Dict] Ingest data grabbed from get_env() function.
+    :param parameter: [String] One of "sst", "sss", or "depth" to visualize its distribution
+
+    :return: a matplotlib Axes object or plotly Figure object
+
+    ::Usage
+
+        from pydwcviz import stats
+        # return a matplotlib.pyplot Axes object when interactive=False
+        stats.dist_env(stats.get_env(taxonid = 1071), parameter="sst", interactive=False)
+        
+        # return a plotly object when interactive=True
+        stats.dist_env(stats.get_years(taxonid = 1071), parameter="sss", interactive=True)
+    """
+    valid = ["sst", "sss", "depth"]
+    if parameter not in valid:
+        raise ValueError(f"Argument 'parameter' must be one of {valid}.")
+
+    df = pd.DataFrame(data[parameter])
+    angle = 0
+
+    if parameter == "depth":
+        df[df.columns[0]] = df[df.columns[0]].astype(str)
+        angle = 90
+    if not interactive:        
+        ax = plt.bar(x = df[df.columns[0]], height = df[df.columns[1]])
+        plt.xlabel(parameter)
+        plt.ylabel(df.columns[1])
+        plt.xticks(rotation = angle)
+        return ax
+    
+    fig = px.bar(df, x = df.columns[0], y = df.columns[1], labels={df.columns[0]:parameter})
     return fig
