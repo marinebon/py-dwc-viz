@@ -30,14 +30,14 @@ def test_get_composition():
 
 def test_dist_years():
     """Test time distriution of records function - both interactive and non-interactive"""
-    assert stats.dist_years(stats.get_years(taxonid = 1071), interactive=False).__class__.__name__ == "AxesSubplot"
+    assert stats.dist_years(stats.get_years(taxonid = 1071), interactive=False).__class__.__name__ == "BarContainer"
 
     fig = stats.dist_years(stats.get_years(taxonid = 1071), interactive=True)
     assert fig.__class__.__name__ == "Figure"
     
 def test_dist_env():
     """Test time distriution of records function - both interactive and non-interactive"""
-    assert stats.dist_env(stats.get_env(taxonid = 1071), parameter="sst", interactive=False).__class__.__name__ == "AxesSubplot"
+    assert stats.dist_env(stats.get_env(taxonid = 1071), parameter="sst", interactive=False).__class__.__name__ == "BarContainer"
 
     fig = stats.dist_env(stats.get_env(taxonid = 1071), parameter="depth", interactive=True)
     assert fig.__class__.__name__ == "Figure"
