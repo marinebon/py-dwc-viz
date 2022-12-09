@@ -86,7 +86,7 @@ def latdist(data, level="Species", bbox_to_anchor = [1.5, 1.2], interactive=Fals
         plt.title("Latitude v/s Occurrence Counts")
         plt.legend(bbox_to_anchor=bbox_to_anchor)
 
-        return plt.show()
+        return ax
     else:
         fig = px.line(df, x = "count",y ="lat", color=level)
         fig.update_layout(title="Latitude v/s Occurrence Counts")
