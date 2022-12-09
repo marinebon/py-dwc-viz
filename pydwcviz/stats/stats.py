@@ -1,5 +1,7 @@
 import pandas as pd
 from ..utils import get, obis_base_url
+import matplotlib.pyplot as plt
+import plotly.express as px
 
 def get_records(
     scientificname = None,
@@ -333,3 +335,28 @@ def get_composition(
     }
     out = get(f'{obis_base_url}/statistics/composition',args, **kwargs)
     return out
+
+def dist_years(data, interactive=False, **kwargs):
+    """
+    Get a bar graph of distribution of number of records per year
+
+    :param data: [Dict] Ingest data grabbed from get_years() function.
+
+    ::Usage
+
+        from pydwcviz import stats
+        # return a matplotlib.pyplot plot when interactive=False
+        stats.dist_years(stats.get_years(taxonid = 1071), interactive=False)
+        
+        # return a plotly object when interactive=True
+        stats.dist_years(stats.get_years(taxonid = 1071), interactive=True)
+    """
+    df = pd.DataFrame(data)
+    if not interactive:
+        plt.bar(x = df['year'], height = df['records'])
+        plt.xlabel("year")
+        plt.ylabel("records")
+        return plt.show()
+    
+    fig = px.bar(data, x = "year", y = "records")
+    return fig
