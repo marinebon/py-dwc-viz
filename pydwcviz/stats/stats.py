@@ -1,3 +1,6 @@
+"""
+stats: visualize distribution of records and environmental parameters
+"""
 import pandas as pd
 from ..utils import get, obis_base_url
 import matplotlib.pyplot as plt
