@@ -29,11 +29,15 @@ Contents
 
 Modules
 #######
-`Taxon <taxon.html>`__
+:ref:`taxon`
 ----------------------
 
 Visualize taxanomic distributions from OBIS data in various forms.
 
+:ref:`stats`
+----------------------
+
+Visualize distribution of records and environmental parameters from OBIS data in various forms.
 
 Indices and tables
 ==================
