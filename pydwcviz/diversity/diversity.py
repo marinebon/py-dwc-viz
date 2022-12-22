@@ -12,6 +12,7 @@ def shannon(df, decimals=3):
     :param decimals: [Integer] Decimals. Precision to be maintained in coordinates. 
         Used for aggregation of records (binning).
 
+    :return DataFrame: A DataFrame
     :: Usage
 
         from pyobis import occurrences
