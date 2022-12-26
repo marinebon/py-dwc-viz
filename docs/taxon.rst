@@ -1,7 +1,7 @@
 .. _taxon:
 
-Taxon Module
-============
+Taxon
+=====
 
 Visualize taxanomic distributions from OBIS data in various forms.
 

@@ -48,7 +48,10 @@ def get_records(
     :param flags: [string] Comma separated list of quality flags which need to be set.
     :param exclude: [string] Comma separated list of quality flags to be excluded.
 
-    ::Usage
+    Usage::
+
+        from pydwcviz import stats
+        stats.get_records(scientificname="Mola mola")
 
     """
     args = {
@@ -114,8 +117,10 @@ def get_years(
     :param flags: [string] Comma separated list of quality flags which need to be set.
     :param exclude: [string] Comma separated list of quality flags to be excluded.
 
-    ::Usage
+    Usage::
 
+        from pydwcviz import stats
+        stats.get_years(scientificname="Mola mola")
     """
     args = {
         "scientificname":	scientificname,
@@ -180,7 +185,10 @@ def get_env(
     :param flags: [string] Comma separated list of quality flags which need to be set.
     :param exclude: [string] Comma separated list of quality flags to be excluded.
 
-    ::Usage
+    Usage::
+
+        from pydwcviz import stats
+        stats.get_env(scientificname="Mola mola")
 
     """
     args = {
@@ -247,8 +255,10 @@ def get_qc(
     :param flags: [string] Comma separated list of quality flags which need to be set.
     :param exclude: [string] Comma separated list of quality flags to be excluded.
 
-    ::Usage
+    Usage::
 
+        from pydwcviz import stats
+        stats.get_qc(scientificname="Mola mola")
     """
     args = {
         "scientificname":	scientificname,
@@ -314,7 +324,10 @@ def get_composition(
     :param flags: [string] Comma separated list of quality flags which need to be set.
     :param exclude: [string] Comma separated list of quality flags to be excluded.
 
-    ::Usage
+    Usage::
+
+        from pydwcviz import stats
+        stats.get_composition(scientificname="Mola mola")
 
     """
     args = {
@@ -347,7 +360,7 @@ def dist_years(data, interactive=False, **kwargs):
 
     :return: a matplotlib Axes object or plotly Figure object
 
-    ::Usage
+    Usage::
 
         from pydwcviz import stats
         # return a matplotlib.pyplot plot when interactive=False
@@ -375,7 +388,7 @@ def dist_env(data, parameter, interactive=False, **kwargs):
 
     :return: a matplotlib Axes object or plotly Figure object
 
-    ::Usage
+    Usage::
 
         from pydwcviz import stats
         # return a matplotlib.pyplot Axes object when interactive=False

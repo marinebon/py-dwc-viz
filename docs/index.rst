@@ -26,6 +26,8 @@ Contents
    :maxdepth: 2
 
    taxon
+   stats
+   diversity
 
 Modules
 #######
@@ -38,6 +40,11 @@ Visualize taxanomic distributions from OBIS data in various forms.
 ----------------------
 
 Visualize distribution of records and environmental parameters from OBIS data in various forms.
+
+:ref:`diversity`
+----------------------
+
+Generate biodiversity indices for species analysis.
 
 Indices and tables
 ==================

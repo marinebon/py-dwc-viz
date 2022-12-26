@@ -14,8 +14,9 @@ def shannon(df, decimals=3):
     :param decimals: [Integer] Decimals. Precision to be maintained in coordinates. 
         Used for aggregation of records (binning).
 
-    :return DataFrame: A DataFrame
-    :: Usage
+    :return: A DataFrame
+
+    Usage::
 
         from pyobis import occurrences
         from pydwcviz import diversity
@@ -54,13 +55,12 @@ def es50(df, decimals=3):
     """
     Generate ES50 (Hulbert's) Diversity Index from species occurrence data.
 
-    :param df: [DataFrame] DataFrame. Species Occurrence data as a pandas DataFrame with at 
-            least ['decimalLongitude','decimalLatitude', 'id', 'species']
-    :param decimals: [Integer] Decimals. Precision to be maintained in coordinates. 
-        Used for aggregation of records (binning).
+    :param df: [DataFrame] DataFrame. Species Occurrence data as a pandas DataFrame with at least ['decimalLongitude','decimalLatitude', 'id', 'species']
+    :param decimals: [Integer] Decimals. Precision to be maintained in coordinates. Used for aggregation of records (binning).
 
-    :return DataFrame: A DataFrame
-    :: Usage
+    :return: A DataFrame
+    
+    Usage::
 
         from pyobis import occurrences
         from pydwcviz import diversity
