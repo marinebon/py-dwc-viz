@@ -18,5 +18,6 @@ __license__ = "MIT"
 
 __all__ = [
     "taxon",
-    "stats"
+    "stats",
+    "diversity"
 ]
