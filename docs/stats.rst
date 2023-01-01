@@ -1,7 +1,7 @@
-.. _taxon:
+.. _stats:
 
-Stats Module
-============
+Stats
+=====
 
 Visualize distribution of records and environmental parameters from OBIS data in various forms.
 
