@@ -19,5 +19,6 @@ __license__ = "MIT"
 __all__ = [
     "taxon",
     "stats",
-    "diversity"
+    "diversity",
+    "map",
 ]
