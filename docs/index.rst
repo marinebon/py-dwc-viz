@@ -32,12 +32,13 @@ Contents
 
 Modules
 #######
-:ref:`map`
------------
-Visualize DwC data easily on maps.
 :ref:`diversity`
 ----------------------
 Generate biodiversity indices for species analysis.
+
+:ref:`map`
+-----------
+Visualize DwC data easily on maps.
 
 :ref:`stats`
 ----------------------
