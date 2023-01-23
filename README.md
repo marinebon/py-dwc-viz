@@ -8,17 +8,12 @@ pip install git+git://github.com/marinebon/py-dwc-viz.git
 ```
 
 ## Modules
-### Diversity
-Generate biodiversity indices for species analysis.
-
-### Map
-
-
-### Stats
-Visualize distribution of records and environmental parameters
-
-### Taxon
-Visualize taxonomic distributions
+Module | Description
+-------|------------
+`diversity`|Generate biodiversity indices for species analysis.
+`map`|Visualize DwC data easily on maps
+`stats`|Visualize distribution of records and environmental parameters.
+`taxon`|Visualize taxonomic distributions.
 
 ## Documentation
 The documentation can be found at [GitHub Pages](https://marinebon.github.io/py-dwc-viz).
