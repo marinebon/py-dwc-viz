@@ -9,7 +9,7 @@ def points(df, crs="epsg:4326", figsize=(20,10)):
     Generate a point map from DwC data
 
     :param df: [DataFrame] A DwC data DataFrame with at least decimalLongitude, and decimalLatitude
-    as column labels
+        as column labels
     :param crs: [String] Define the CRS for the map
     :param figsize: [Tuple] Define the figsize of the plot
 

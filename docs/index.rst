@@ -25,26 +25,29 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   taxon
-   stats
    diversity
+   map
+   stats
+   taxon   
 
 Modules
 #######
-:ref:`taxon`
+:ref:`diversity`
 ----------------------
+Generate biodiversity indices for species analysis.
 
-Visualize taxanomic distributions from OBIS data in various forms.
+:ref:`map`
+-----------
+Visualize DwC data easily on maps.
 
 :ref:`stats`
 ----------------------
-
 Visualize distribution of records and environmental parameters from OBIS data in various forms.
 
-:ref:`diversity`
+:ref:`taxon`
 ----------------------
+Visualize taxanomic distributions from OBIS data in various forms.
 
-Generate biodiversity indices for species analysis.
 
 Indices and tables
 ==================
