@@ -12,7 +12,7 @@ def test_plot_dist():
 
 def test_latdist():
     """Test latitude distriution function - both interactive and non-interactive"""
-    assert taxon.latdist(occurrences.search(scientificname = "Mola mola", size=100).execute(), level="species", interactive=False).__class__.__name__ == "AxesSubplot"
+    assert taxon.latdist(occurrences.search(scientificname = "Mola mola", size=100).execute(), level="species", interactive=False).__class__.__name__ == "Axes"
 
     fig = taxon.latdist(occurrences.search(scientificname = "Mola mola", size=100).execute(), level="species", interactive=True)
     assert fig.__class__.__name__ == "Figure"
