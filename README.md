@@ -1,4 +1,8 @@
 # PyDwcViz
+[![pypi](https://img.shields.io/pypi/v/pydwcviz.svg)](https://pypi.python.org/pypi/pydwcviz)
+[![Build and Deploy docs](https://github.com/marinebon/py-dwc-viz/actions/workflows/build-docs.yml/badge.svg)](https://github.com/marinebon/py-dwc-viz/actions/workflows/build-docs.yml)
+[![Tests](https://github.com/marinebon/py-dwc-viz/actions/workflows/tests.yml/badge.svg)](https://github.com/marinebon/py-dwc-viz/actions/workflows/tests.yml)
+
 A python package that makes Darwin-Core Data analysis and visualization easy.
 
 ## Installation
